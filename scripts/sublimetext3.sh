@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -e
 source ./vars
 
 # install Sublime Text 3 from tarball + install Package Control
