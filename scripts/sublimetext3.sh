@@ -17,7 +17,7 @@ URL_TARBALL=$(lynx -dump -listonly "$URL" \
   | grep "x64.tar.bz2" \
   | awk '{ print $NF }' )
 
-curl -o "$TARBALL" "$URL_TARBALL"
+curl --progress-bar -o "$TARBALL" "$URL_TARBALL"
 if tar -xf "$TARBALL" --directory="$TMPDIR"; then
   sudo mv "$TMPDIR"/sublime_text_3/ /opt/
   sudo ln -s /opt/sublime_text_3/sublime_text /bin/subl
@@ -36,5 +36,5 @@ Categories=Utility;TextEditor;Development;
 EOF"
 
 echo Installing Package Control.
-curl "$PACKAGECONTROL_URL" > /opt/sublime_text_3/Packages/"Package Control.sublime-package" 
+curl --progress-bar "$PACKAGECONTROL_URL" > /opt/sublime_text_3/Packages/"Package Control.sublime-package" 
 trap "rm -rf $TMPDIR; exit" 2
