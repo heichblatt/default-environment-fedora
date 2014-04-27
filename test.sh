@@ -10,4 +10,4 @@ echo Building image.
 docker build -t "$TAG" .
 echo Running tests in container.
 docker run -i -t "$TAG"
-exit 0
+exit $(docker wait "$TAG")
