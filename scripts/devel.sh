@@ -8,7 +8,7 @@ source ./vars
 echo Installing development packages.
 
 LC_ALL=C $GROUPINSTALL "Development Tools"
-$INSTALL git gitg meld docker-io
+$INSTALL git gitg meld docker-io ShellCheck
 $SUDO service docker restart
 $SUDO usermod -a -G "$USER" docker
 $SUDO systemctl enable docker
