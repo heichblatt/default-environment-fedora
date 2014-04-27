@@ -1,5 +1,6 @@
 FROM stackbrew/fedora:heisenbug
 MAINTAINER Hannes Eichblatt
 
-ADD . /opt/default-environment-fedora
-ENTRYPOINT ["/opt/default-environment-fedora/bootstrap.sh"]
+ADD . /usr/src/default-environment-fedora
+RUN rm -f /usr/src/default-environment-fedora/scripts/docker.sh
+ENTRYPOINT ["/usr/src/default-environment-fedora/bootstrap.sh"]

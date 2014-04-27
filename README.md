@@ -12,6 +12,7 @@ Currently, this is only a loose collection of scripts to install software that i
 | Web Development Packages | scripts/webdevel.sh | |
 | [Vagrant](http://www.vagrantup.com/) | scripts/vagrant | |
 | [Veewee](https://github.com/jedi4ever/veewee) | scripts/veewee.sh | |
+| [Docker](https://www.docker.io/) | Docker | excluded from testing to avoid nesting |
 
 ## Bootstrap a new Workstation
 

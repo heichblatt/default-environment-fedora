@@ -3,10 +3,10 @@
 set -e
 
 # test the environment in a Docker container
-
 TAG=heichblatt/test-default-environment-fedora
 
-which docker >&1 >/dev/null || exit 1
-docker build -t "$TAG" . && ID=$(docker run -d -i -t "$TAG")
-echo Container is running.
-echo Watch logs with: docker logs -f "$ID"
+which docker >&1 >/dev/null
+echo Building image.
+time docker build -t "$TAG" .
+echo Running tests in container.
+time ID=$(docker run -i -t "$TAG")

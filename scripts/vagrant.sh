@@ -5,7 +5,7 @@ source ./vars
 # install Vagrant from RPM
 
 URL=http://www.vagrantup.com/downloads.html
-which lynx || "$INSTALL" lynx
+which lynx || $INSTALL lynx
 RPM=$(lynx -dump -listonly "$URL" \
   | grep "$ARCH" \
   | grep -i rpm \
