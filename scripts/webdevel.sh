@@ -5,6 +5,8 @@ source ./vars
 
 # install packages necessary for web development work
 
+echo Installing web development packages.
+
 "$GROUPINSTALL" "Development Tools"
 "$INSTALL" rubygems ruby-devel rubygem-RedCloth
 "$GEMINSTALL" jekyll

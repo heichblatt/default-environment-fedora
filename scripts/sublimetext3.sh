@@ -19,12 +19,12 @@ URL_TARBALL=$(lynx -dump -listonly "$URL" \
 
 curl --progress-bar -o "$TARBALL" "$URL_TARBALL"
 if tar -xf "$TARBALL" --directory="$TMPDIR"; then
-  sudo mv "$TMPDIR"/sublime_text_3/ /opt/
-  sudo ln -s /opt/sublime_text_3/sublime_text /bin/subl
+  $SUDO mv "$TMPDIR"/sublime_text_3/ /opt/
+  $SUDO ln -s /opt/sublime_text_3/sublime_text /bin/subl
 fi
 rm -r "$TMPDIR"
 
-sudo bash -c "cat << EOF > /usr/share/applications/sublime.desktop
+$SUDO bash -c "cat << EOF > /usr/share/applications/sublime.desktop
 [Desktop Entry]
 Name=Sublime Text
 Exec=subl %F

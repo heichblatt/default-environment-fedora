@@ -1,4 +1,9 @@
-INSTALL=${INSTALL:-"sudo yum -y install"}
-GROUPINSTALL=${GROUPINSTALL:-"sudo yum -y groupinstall"}
-LOCALINSTALL=${LOCALINSTALL:-"sudo yum -y localinstall"}
-GEMINSTALL=${INSTALL:-"sudo gem install"}
+if [[ $(whoami) == root ]] ; then
+	SUDO=""
+else
+	SUDO=$(which sudo)
+fi
+INSTALL=${INSTALL:-"$SUDO yum -y install"}
+GROUPINSTALL=${GROUPINSTALL:-"$SUDO yum -y groupinstall"}
+LOCALINSTALL=${LOCALINSTALL:-"$SUDO yum -y localinstall"}
+GEMINSTALL=${INSTALL:-"$SUDO gem install"}
