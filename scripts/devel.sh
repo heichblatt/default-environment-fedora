@@ -6,4 +6,4 @@ source ./vars
 # install packages necessary for development work
 
 "$GROUPINSTALL" "Development Tools"
-"$INSTALL" git gitg meld
+"$INSTALL" git gitg meld docker-io
