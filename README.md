@@ -20,3 +20,11 @@ To run all the scripts in a subjectively prioritized order, run
 ```bash
 ./bootstrap.sh
 ```
+
+## Test
+
+To test if changes will actually work, install [Docker](https://www.docker.io/) use @./Dockerfile@.
+
+```bash
+docker build .
+```
