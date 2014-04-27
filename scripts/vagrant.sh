@@ -10,5 +10,5 @@ RPM=$(lynx -dump -listonly "$URL" \
   | grep "$ARCH" \
   | grep -i rpm \
   | awk '{ print $NF }')
-"$INSTALL" "$RPM"
-"$INSTALL" VirtualBox
+$INSTALL "$RPM"
+$INSTALL VirtualBox
