@@ -13,16 +13,16 @@ PACKAGECONTROL_URL=https://sublime.wbond.net/Package%20Control.sublime-package
 
 echo Installing Sublime Text 3.
 which lynx > /dev/null 2>&1 || $INSTALL lynx
+which bzip2 > /dev/null 2>&1 || $INSTALL bzip2
+
 URL_TARBALL=$(lynx -dump -listonly "$URL" \
   | grep "x64.tar.bz2" \
   | awk '{ print $NF }' )
-
 curl --progress-bar -o "$TARBALL" "$URL_TARBALL"
-if tar -xf "$TARBALL" --directory="$TMPDIR"; then
+if tar -xf "$TARBALL" --directory="$TMPDIR" ; then
   $SUDO mv "$TMPDIR"/sublime_text_3/ /opt/
   $SUDO ln -s /opt/sublime_text_3/sublime_text /bin/subl
 fi
-rm -r "$TMPDIR"
 
 $SUDO bash -c "cat << EOF > /usr/share/applications/sublime.desktop
 [Desktop Entry]
@@ -36,5 +36,9 @@ Categories=Utility;TextEditor;Development;
 EOF"
 
 echo Installing Package Control.
-curl --progress-bar "$PACKAGECONTROL_URL" > /opt/sublime_text_3/Packages/"Package Control.sublime-package" 
+cd /opt/sublime_text_3/Packages
+curl --progress-bar -o Package\ Control.sublime-package "$PACKAGECONTROL_URL"
+
+rm -rf "$TMPDIR"
+
 trap "rm -rf $TMPDIR; exit" 2
