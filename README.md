@@ -12,3 +12,11 @@ Currently, this is only a loose collection of scripts to install software that i
 | Web Development Packages | scripts/webdevel.sh | |
 | [Vagrant](http://www.vagrantup.com/) | scripts/vagrant | |
 | [Veewee](https://github.com/jedi4ever/veewee) | scripts/veewee.sh | |
+
+## Bootstrap a new Workstation
+
+To run all the scripts in a subjectively prioritized order, run
+
+```bash
+./bootstrap.sh
+```
