@@ -10,3 +10,4 @@ echo Building image.
 time docker build -t "$TAG" .
 echo Running tests in container.
 time ID=$(docker run -i -t "$TAG")
+exit 0
