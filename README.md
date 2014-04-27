@@ -10,3 +10,5 @@ Currently, this is only a loose collection of scripts to install software that i
 | Sublime Text 3 | scripts/sublimetext3.sh | installs from [Tarball](http://www.sublimetext.com/3) + [Package Control](https://sublime.wbond.net/) |
 | Development Packages | scripts/devel.sh | |
 | Web Development Packages | scripts/webdevel.sh | |
+| [Vagrant](http://www.vagrantup.com/) | scripts/vagrant | |
+| [Veewee](https://github.com/jedi4ever/veewee) | scripts/veewee.sh | |
