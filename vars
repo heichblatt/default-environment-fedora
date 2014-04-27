@@ -1,3 +1,4 @@
 INSTALL=${INSTALL:-"sudo yum -y install"}
-GROUPINSTALL=${GROUPINSTALL:-"LCA_ALL=C sudo yum -y groupinstall"}
+GROUPINSTALL=${GROUPINSTALL:-"LC_ALL=C sudo yum -y groupinstall"}
+LOCALINSTALL=${LOCALINSTALL:-"sudo yum -y localinstall"}
 GEMINSTALL=${INSTALL:-"sudo gem install"}

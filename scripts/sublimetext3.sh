@@ -12,7 +12,7 @@ TARBALL="$TMPDIR"/st3.tar.bz2
 PACKAGECONTROL_URL=https://sublime.wbond.net/Package%20Control.sublime-package
 
 echo Installing Sublime Text 3.
-which lynx > /dev/null 2>&1 || $(INSTALL) lynx
+which lynx > /dev/null 2>&1 || "$INSTALL" lynx
 URL_TARBALL=$(lynx -dump -listonly "$URL" \
   | grep "x64.tar.bz2" \
   | awk '{ print $NF }' )
