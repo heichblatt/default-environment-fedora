@@ -1,1 +1,2 @@
 INSTALL=${INSTALL:-"sudo yum -y install"}
+GROUPINSTALL=${GROUPINSTALL:-"LCA_ALL=C sudo yum -y groupinstall"}
