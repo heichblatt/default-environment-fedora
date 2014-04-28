@@ -10,4 +10,4 @@ echo Building image.
 docker build -t "$TAG" .
 echo Running tests in container.
 docker run -i -t --cidfile=./CID "$TAG"
-exit $(docker wait $(cat CID))
+exit $(docker logs -f $(cat CID))
