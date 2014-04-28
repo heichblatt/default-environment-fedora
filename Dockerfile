@@ -1,7 +1,7 @@
 FROM stackbrew/fedora:heisenbug
 MAINTAINER Hannes Eichblatt
 
-RUN yum check-update || true
+RUN yum makecache
 RUN yum install -y deltarpm
 
 ADD . /usr/src/default-environment-fedora
