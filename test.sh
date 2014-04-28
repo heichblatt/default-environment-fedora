@@ -11,3 +11,7 @@ docker build -t "$TAG" .
 echo Running tests in container.
 docker run -i -t --cidfile=./CID "$TAG"
 exit $(docker logs -f $(cat CID))
+
+rm -rf ./CID
+
+trap "rm -f ./CID" SIGHUP SIGINT SIGTERM
