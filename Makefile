@@ -26,6 +26,7 @@ kde-extras:
 
 devel:
 	$(INSTALL) make gitg git vim-X11 meld ShellCheck
+	LC_ALL=C $(GROUPINSTALL) "Development Tools"
 
 media:
 	$(INSTALL) vlc
