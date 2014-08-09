@@ -1,11 +1,15 @@
 INSTALL=yum -y install
+GROUPINSTALL=yum -y groupinstall
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: web communication kde-extras devel media latex
+all: web communication kde-extras office devel media latex
 
 web:
 	$(INSTALL) firefox
+
+office:
+	$(GROUPINSTALL) LibreOffice
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
@@ -15,7 +19,6 @@ kde-extras:
 
 devel:
 	$(INSTALL) make gitg git vim-X11
-	
 
 media:
 	$(INSTALL) vlc
