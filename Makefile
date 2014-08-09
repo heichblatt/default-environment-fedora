@@ -11,7 +11,7 @@ rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-20.noarch.rpm
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer
 
 web:
 	$(INSTALL) firefox
