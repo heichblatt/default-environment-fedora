@@ -4,7 +4,7 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: base web communication kde-extras office devel media latex
+all: base web communication kde-extras office devel media latex msfonts
 
 base:
 	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap
@@ -22,7 +22,7 @@ communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
 
 kde-extras:
-	$(INSTALL) kate kdepim
+	$(INSTALL) kate kdepim oxygen-cursor-themes
 
 devel:
 	$(INSTALL) make gitg git vim-X11 meld ShellCheck
@@ -36,7 +36,6 @@ latex:
 
 docker:
 	$(INSTALL) docker-io
-	service docker restart
 	systemctl enable docker
 	systemctl restart docker
 	@echo Please put your user account in the docker group.
