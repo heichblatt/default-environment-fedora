@@ -1,0 +1,1 @@
+* for script in scripts/* ; do make into make target ; done
