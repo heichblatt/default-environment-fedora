@@ -2,7 +2,10 @@ INSTALL=yum -y install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: communication kde-extras devel media latex
+all: web communication kde-extras devel media latex
+
+web:
+	$(INSTALL) firefox
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
