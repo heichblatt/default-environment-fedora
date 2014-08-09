@@ -7,7 +7,7 @@ MSTTCOREFONTS_VERSION=2.5-1
 all: base web communication kde-extras office devel media latex
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx
 
 web:
 	$(INSTALL) firefox
