@@ -1,5 +1,6 @@
 INSTALL=yum -y install
 GROUPINSTALL=yum -y groupinstall
+GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
@@ -11,6 +12,9 @@ base:
 web:
 	$(INSTALL) firefox
 
+web-devel:
+	$(INSTALL) rubygems ruby-devel rubygem-RedCloth nodejs 
+
 office:
 	$(GROUPINSTALL) LibreOffice
 
@@ -21,13 +25,20 @@ kde-extras:
 	$(INSTALL) kate kdepim
 
 devel:
-	$(INSTALL) make gitg git vim-X11
+	$(INSTALL) make gitg git vim-X11 meld ShellCheck
 
 media:
 	$(INSTALL) vlc
 
 latex: 
 	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig
+
+docker:
+	$(INSTALL) docker-io
+	service docker restart
+	systemctl enable docker
+	systemctl restart docker
+	@echo Please put your user account in the docker group.
 
 msfonts: 
 	$(INSTALL) rpm-build wget ttmkfdir cabextract
