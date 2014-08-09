@@ -3,7 +3,10 @@ GROUPINSTALL=yum -y groupinstall
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: web communication kde-extras office devel media latex
+all: base web communication kde-extras office devel media latex
+
+base:
+	$(INSTALL) transmission-remote-gtk
 
 web:
 	$(INSTALL) firefox
