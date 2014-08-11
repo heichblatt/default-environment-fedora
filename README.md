@@ -12,7 +12,7 @@ sudo make
 
 ## Test
 
-To test if changes will actually work, install [Docker](https://www.docker.io/) use @./Dockerfile@.
+To test if changes will actually work, install [Docker](https://www.docker.io/) and use the Dockerfile.
 
 ```bash
 docker build .
