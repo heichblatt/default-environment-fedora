@@ -1,1 +1,3 @@
 * for script in scripts/* ; do make into make target ; done
+* use closed-source VirtualBox, even if it hurts
+* repair msfonts

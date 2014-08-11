@@ -4,7 +4,9 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: rpmfusion base web communication kde-extras office devel media latex msfonts
+all: rpmfusion base web communication kde-extras office devel media latex
+
+broken: msfonts
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
@@ -51,3 +53,5 @@ msfonts:
 		rpmbuild -bb ./msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
 		$(INSTALL) /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm
 
+vagrant:
+	./scripts/vagrant.sh
