@@ -4,7 +4,7 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: rpmfusion base web communication kde-extras office devel media latex
+all: rpmfusion base web communication kde-extras office media docker devel latex
 
 broken: msfonts
 
