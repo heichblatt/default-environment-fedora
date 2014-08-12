@@ -23,6 +23,7 @@ web-devel:
 
 office:
 	$(GROUPINSTALL) LibreOffice
+	$(INSTALL) freemind jortho-dictionary-de
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
