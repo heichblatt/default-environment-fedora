@@ -48,7 +48,7 @@ docker:
 msfonts: 
 	$(INSTALL) rpm-build wget ttmkfdir cabextract
 	cd /tmp && \
-		rm -rf /root/rpmbuild/RPMS/noarch/msttcorefonts*rpm && \
+		rm -rf /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm && \
 		wget http://corefonts.sourceforge.net/msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
 		rpmbuild -bb ./msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
 		$(INSTALL) /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm || true
