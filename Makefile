@@ -4,9 +4,7 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: rpmfusion base web communication kde-extras office media docker devel latex
-
-broken: msfonts
+all: rpmfusion base web communication kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
@@ -50,9 +48,10 @@ docker:
 msfonts: 
 	$(INSTALL) rpm-build wget ttmkfdir cabextract
 	cd /tmp && \
+		rm -rf /root/rpmbuild/RPMS/noarch/msttcorefonts*rpm && \
 		wget http://corefonts.sourceforge.net/msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
 		rpmbuild -bb ./msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
-		$(INSTALL) /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm
+		$(INSTALL) /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm || true
 
 vagrant:
 	./scripts/vagrant.sh
