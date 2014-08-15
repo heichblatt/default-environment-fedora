@@ -55,3 +55,12 @@ msfonts:
 
 vagrant:
 	./scripts/vagrant.sh
+
+pidgin-window-merge:
+	  pushd $(shell rpm -E %_specdir) && \
+		  wget -c https://raw.github.com/dm0-/window_merge/master/pidgin-window_merge.spec && \
+		  yum-builddep -y $PWD/pidgin-window_merge.spec && \
+		  popd &&\
+		  spectool -g -R $(shell rpm -E %_specdir)/pidgin-window_merge.spec && \
+		  rpmbuild -ba $(shell rpm -E %_specdir)/pidgin-window_merge.spec
+	yum -y install /root/rpmbuild/RPMS/x86_64/pidgin-window_merge-[0-9]*.rpm || rpm -qa|grep pidgin\-window\_merge
