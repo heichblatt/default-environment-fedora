@@ -4,14 +4,14 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: rpmfusion base web communication pidgin-window_merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-20.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli
 
 web:
 	$(INSTALL) firefox
