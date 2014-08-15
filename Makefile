@@ -4,7 +4,7 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 
-all: rpmfusion base web communication kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web communication pidgin-window_merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
