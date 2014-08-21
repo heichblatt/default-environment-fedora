@@ -49,8 +49,8 @@ docker:
 	systemctl restart docker
 	@echo Please put your user account in the docker group.
 
-msfonts: 
-	$(INSTALL) rpm-build wget ttmkfdir cabextract
+msfonts: rpm-tools
+	$(INSTALL) ttmkfdir cabextract
 	cd /tmp && \
 		rm -rf /root/rpmbuild/RPMS/noarch/msttcorefonts-$(MSTTCOREFONTS_VERSION).noarch.rpm && \
 		wget http://corefonts.sourceforge.net/msttcorefonts-$(MSTTCOREFONTS_VERSION).spec && \
@@ -60,7 +60,7 @@ msfonts:
 vagrant:
 	./scripts/vagrant.sh
 
-pidgin-window-merge:
+pidgin-window-merge: devel rpm-tools
 	yum clean all
 	mkdir -p $(RPMBUILD_DIR)/ &&\
 		cd $(RPMBUILD_DIR) && \
