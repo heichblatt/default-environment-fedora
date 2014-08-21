@@ -5,6 +5,8 @@ GEMINSTALL=gem install
 MSTTCOREFONTS_VERSION=2.5-1
 RPMBUILD_DIR=$(HOME)/rpmbuild
 
+.IGNORE: docker
+
 all: rpmfusion base web communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
