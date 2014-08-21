@@ -10,7 +10,7 @@ echo Building image.
 docker build -t "$TAG" .
 echo Running tests in container.
 rm -rf ./CID
-docker run -i -t --cidfile=./CID "$TAG"
+docker run --cidfile=./CID "$TAG"
 docker logs -f $(cat CID)
 retval=$?
 rm -rf ./CID
