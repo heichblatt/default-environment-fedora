@@ -24,6 +24,7 @@ web:
 
 web-devel:
 	$(INSTALL) rubygems ruby-devel rubygem-RedCloth nodejs 
+	sudo gem install --no-ri --no-rdoc jekyll
 
 office:
 	$(GROUPINSTALL) LibreOffice
