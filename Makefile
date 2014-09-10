@@ -16,7 +16,7 @@ rpmfusion:
 
 base:
 	$(REMOVE) vim-minimal || true
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
