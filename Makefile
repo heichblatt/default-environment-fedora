@@ -1,5 +1,6 @@
 INSTALL=yum -y install
 GROUPINSTALL=yum -y groupinstall
+REMOVE=yum -y remove
 GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
@@ -7,14 +8,15 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-20.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark
+	$(REMOVE) vim-minimal || true
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
@@ -32,6 +34,10 @@ office:
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
+
+kde:
+	$(GROUPINSTALL) KDE
+	$(GROUPINSTALL) "KDE Applications"
 
 kde-extras:
 	$(INSTALL) kate kdepim oxygen-cursor-themes
