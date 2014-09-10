@@ -40,7 +40,7 @@ kde:
 	$(GROUPINSTALL) "KDE Applications"
 
 kde-extras:
-	$(INSTALL) kate kdepim oxygen-cursor-themes
+	$(INSTALL) kate kdepim oxygen-cursor-themes yakuake
 
 devel:
 	$(INSTALL) make gitg git vim-X11 meld ShellCheck
