@@ -8,7 +8,7 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web torbrowser-launcher kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
