@@ -42,7 +42,7 @@ kde:
 	systemctl disable gdm.service || true
 	systemctl stop gdm.service || true
 	systemctl enable kdm.service
-	systemctl restart kdm.service
+	systemctl status kdm.service | grep "Active: active" || systemctl restart kdm.service
 
 kde-extras:
 	$(INSTALL) kate kdepim oxygen-cursor-themes yakuake
