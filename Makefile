@@ -8,7 +8,7 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web torbrowser-launcher kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web flash torbrowser-launcher kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
@@ -16,7 +16,7 @@ rpmfusion:
 
 base:
 	$(REMOVE) vim-minimal || true
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts pandoc vim-outliner
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc vim-outliner
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
@@ -93,3 +93,7 @@ torbrowser-launcher:
 		cd torbrowser-launcher && \
 		./build_rpm.sh && \
 		$(INSTALL) dist/torbrowser-launcher-*.rpm
+
+flash:
+	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
+	$(INSTALL) flash-plugin
