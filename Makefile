@@ -30,7 +30,7 @@ web-devel:
 
 office:
 	$(GROUPINSTALL) LibreOffice
-	$(INSTALL) freemind jortho-dictionary-de
+	$(INSTALL) freemind jortho-dictionary-de cups-pdf
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
