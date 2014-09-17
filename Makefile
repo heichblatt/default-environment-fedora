@@ -16,7 +16,7 @@ rpmfusion:
 
 base:
 	$(REMOVE) vim-minimal || true
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper ncdu
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc vim-outliner ncdu
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
@@ -55,7 +55,7 @@ media:
 	$(INSTALL) vlc
 
 latex: 
-	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig
+	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig texlive-preprint latexmk
 
 docker:
 	$(INSTALL) docker-io
