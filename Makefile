@@ -97,3 +97,15 @@ torbrowser-launcher:
 flash:
 	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
 	$(INSTALL) flash-plugin
+
+virtualization:
+	$(INSTALL) @virtualization
+	cat > /etc/polkit-1/localauthority/50-local.d/10-heichblatt-libvirtd.pkla <<EOF \
+	[Allow heichblatt libvirt management permissions] \
+	Identity=unix-user:heichblatt \
+	Action=org.libvirt.unix.manage \
+	ResultAny=yes \
+	ResultInactive=yes \
+	ResultActive=yes \
+	EOF
+
