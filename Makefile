@@ -97,3 +97,7 @@ torbrowser-launcher:
 flash:
 	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
 	$(INSTALL) flash-plugin
+
+owncloud-client:
+	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_20/isv:ownCloud:desktop.repo
+	$(INSTALL) owncloud-client
