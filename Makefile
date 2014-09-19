@@ -8,7 +8,7 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs communication pidgin-window-merge office msfonts media docker devel latex 
+all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs communication pidgin-window-merge office msfonts media docker devel latex coursera-dl
 
 kde: kde-base kde-extras
 gnome: gnome-base
@@ -118,3 +118,7 @@ gnome-base:
 
 gnome-extras:
 	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome
+
+coursera-dl:
+	$(INSTALL) python-pip
+	pip install coursera-dl
