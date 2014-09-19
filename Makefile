@@ -8,7 +8,10 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs communication pidgin-window-merge office msfonts media docker devel latex 
+
+kde: kde-base kde-extras
+gnome: gnome-base
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
@@ -16,7 +19,7 @@ rpmfusion:
 
 base:
 	$(REMOVE) vim-minimal || true
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc vim-outliner ncdu remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc vim-outliner ncdu
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
@@ -35,7 +38,7 @@ office:
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
 
-kde:
+kde-base:
 	$(GROUPINSTALL) KDE
 	$(GROUPINSTALL) "KDE Applications"
 	$(INSTALL) kdm
@@ -104,3 +107,14 @@ owncloud-client:
 
 codecs:
 	$(INSTALL) gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good gstreamer1-plugins-ugly
+
+gnome-base:
+	$(GROUPINSTALL) GNOME
+	$(INSTALL) gdm
+	systemctl disable kdm.service || true
+	systemctl stop kdm.service || true
+	systemctl enable gdm.service
+	systemctl status gdm.service | grep "Active: active" || systemctl restart gdm.service
+
+gnome-extras:
+	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome
