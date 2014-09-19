@@ -110,7 +110,7 @@ codecs:
 
 gnome-base:
 	$(GROUPINSTALL) GNOME
-	$(INSTALL) gdm
+	$(INSTALL) gdm terminator
 	systemctl disable kdm.service || true
 	systemctl stop kdm.service || true
 	systemctl enable gdm.service
