@@ -8,7 +8,7 @@ RPMBUILD_DIR=$(HOME)/rpmbuild
 
 .IGNORE: docker
 
-all: rpmfusion base web flash torbrowser-launcher kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
+all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs kde communication pidgin-window-merge kde-extras office msfonts media docker devel latex 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
@@ -101,3 +101,6 @@ flash:
 owncloud-client:
 	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_20/isv:ownCloud:desktop.repo
 	$(INSTALL) owncloud-client
+
+codecs:
+	$(INSTALL) gstreamer1-plugins-bad-freeworld gstreamer1-plugins-good gstreamer1-plugins-ugly
