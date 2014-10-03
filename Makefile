@@ -58,7 +58,7 @@ media:
 	$(INSTALL) vlc
 
 latex: 
-	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig texlive-preprint latexmk
+	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig texlive-preprint texlive-dinbrief latexmk gummi
 
 docker:
 	$(INSTALL) docker-io
