@@ -92,10 +92,10 @@ pidgin-window-merge: devel rpm-tools
 torbrowser-launcher:
 	$(INSTALL) python-psutil python-twisted wmctrl gnupg fakeroot rpm-build git
 	cd /usr/src && \
-		git clone https://github.com/micahflee/torbrowser-launcher.git && \
+		git clone https://github.com/micahflee/torbrowser-launcher.git || true && \
 		cd torbrowser-launcher && \
-		./build_rpm.sh && \
-		$(INSTALL) dist/torbrowser-launcher-*.rpm
+		./build_rpm.sh 
+	-$(INSTALL) dist/torbrowser-launcher-*noarch.rpm
 
 flash:
 	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
