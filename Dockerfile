@@ -6,4 +6,4 @@ RUN yum install -y deltarpm make
 
 ADD . /usr/src/default-environment-fedora
 WORKDIR /usr/src/default-environment-fedora
-ENTRYPOINT ["make"]
+RUN make

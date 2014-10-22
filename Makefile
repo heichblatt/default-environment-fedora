@@ -5,6 +5,7 @@ GEMINSTALL=gem install
 
 MSTTCOREFONTS_VERSION=2.5-1
 RPMBUILD_DIR=$(HOME)/rpmbuild
+DOCKER_CONTAINER_NAME ?= $(USER)/test-default-environment-fedora
 
 .IGNORE: docker
 
@@ -12,6 +13,9 @@ all: rpmfusion base web flash torbrowser-launcher owncloud-client codecs communi
 
 kde: kde-base kde-extras
 gnome: gnome-base
+
+test:
+	docker build --tag=$(DOCKER_CONTAINER_NAME) . 
 
 rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
