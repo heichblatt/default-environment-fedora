@@ -1,4 +1,4 @@
-FROM stackbrew/fedora:heisenbug
+FROM fedora:20
 MAINTAINER Hannes Eichblatt
 
 RUN yum makecache
