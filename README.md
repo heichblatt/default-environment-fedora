@@ -17,3 +17,7 @@ To test if changes will actually work, install [Docker](https://www.docker.io/) 
 ```bash
 docker build .
 ```
+or
+```bash
+make test
+```
