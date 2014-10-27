@@ -125,3 +125,13 @@ gnome-extras:
 coursera-dl:
 	$(INSTALL) python-pip
 	pip install coursera-dl
+
+dictionaries:
+	$(INSTALL) stardict
+	cd /usr/share/stardict/dic/stardict-dict && \
+		wget -c http://downloads.sourceforge.net/stardict/stardict-freedict-deu-eng-2.4.2.tar.bz2 && \
+		wget -c http://downloads.sourceforge.net/stardict/stardict-freedict-eng-deu-2.4.2.tar.bz2 && \
+		tar xf stardict-*deu-eng* && \
+		tar xf stardict-*eng-deu* && \
+		rm -rfv stardict*tar.bz2 && \
+		mv */* .
