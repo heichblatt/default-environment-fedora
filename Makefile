@@ -129,9 +129,9 @@ coursera-dl:
 dictionaries:
 	$(INSTALL) stardict
 	cd /usr/share/stardict/dic/stardict-dict && \
-		wget -c http://downloads.sourceforge.net/stardict/stardict-freedict-deu-eng-2.4.2.tar.bz2 && \
-		wget -c http://downloads.sourceforge.net/stardict/stardict-freedict-eng-deu-2.4.2.tar.bz2 && \
-		tar xf stardict-*deu-eng* && \
-		tar xf stardict-*eng-deu* && \
+		wget -c http://home.arcor.de/binaerspuele/stardict-dictd_www.freedict.de_deu-eng-2.4.2.tar.bz2 && \
+		wget -c http://home.arcor.de/binaerspuele/stardict-dictd_www.freedict.de_eng-deu-2.4.2.tar.bz2 && \
+		find . -name "stardict-dictd_www.freedict.de_deu-eng-*.tar.bz2" -exec tar xfv {} \; && \
+		mv -v stardict*/* . && \
 		rm -rfv stardict*tar.bz2 && \
-		mv */* .
+		( find . -type d -name "stardict*freedict*" -exec rm -rfv {} \; || true )
