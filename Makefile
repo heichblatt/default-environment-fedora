@@ -22,7 +22,7 @@ rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-20.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen torbrowser-launcher
 
 update:
 	yum update -y
@@ -94,14 +94,6 @@ pidgin-window-merge: devel rpm-tools
 		spectool -g -R $(RPMBUILD_DIR)/SPECS/pidgin-window_merge.spec && \
 		rpmbuild -ba $(RPMBUILD_DIR)/SPECS/pidgin-window_merge.spec
 	yum -y install $(RPMBUILD_DIR)/RPMS/x86_64/pidgin-window_merge-[0-9]*.rpm || rpm -qa|grep pidgin\-window\_merge
-
-torbrowser-launcher:
-	$(INSTALL) python-psutil python-twisted wmctrl gnupg fakeroot rpm-build git
-	cd /usr/src && \
-		git clone https://github.com/micahflee/torbrowser-launcher.git || true && \
-		cd torbrowser-launcher && \
-		./build_rpm.sh 
-	-$(INSTALL) dist/torbrowser-launcher-*noarch.rpm
 
 flash:
 	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
