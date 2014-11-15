@@ -45,8 +45,8 @@ communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
 
 kde-base:
-	$(GROUPINSTALL) KDE
-	$(GROUPINSTALL) "KDE Applications"
+	wget -O /etc/yum.repos.d/dvratil-plasma-5-fedora-20.repo https://copr.fedoraproject.org/coprs/dvratil/plasma-5/repo/fedora-20/dvratil-plasma-5-fedora-20.repo
+	$(INSTALL) plasma-5
 	$(INSTALL) kdm kde-l10n-German
 	systemctl disable gdm.service || true
 	systemctl stop gdm.service || true
