@@ -39,7 +39,7 @@ web-devel:
 
 office:
 	$(GROUPINSTALL) LibreOffice
-	$(INSTALL) freemind jortho-dictionary-de cups-pdf calibre pdfchain
+	$(INSTALL) freemind jortho-dictionary-de cups-pdf calibre pdfmod 
 
 communication:
 	$(INSTALL) thunderbird pidgin pidgin-otr
