@@ -1,4 +1,4 @@
-FROM fedora:20
+FROM fedora:21
 MAINTAINER Hannes Eichblatt
 
 RUN yum makecache
