@@ -54,7 +54,7 @@ kde-base:
 	systemctl status kdm.service | grep "Active: active" || systemctl restart kdm.service
 
 kde-extras:
-	$(INSTALL) kate kdepim oxygen-cursor-themes yakuake
+	$(INSTALL) kdepim oxygen-cursor-themes 
 
 devel:
 	$(INSTALL) make gitg git vim-X11 meld ShellCheck
