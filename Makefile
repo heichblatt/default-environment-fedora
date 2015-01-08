@@ -18,8 +18,8 @@ test:
 	docker build --tag=$(DOCKER_CONTAINER_NAME) . 
 
 rpmfusion:
-	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-20.noarch.rpm || true
-	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-20.noarch.rpm || true
+	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm || true
+	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm || true
 
 base:
 	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen
