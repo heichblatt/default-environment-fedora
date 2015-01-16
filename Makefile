@@ -47,7 +47,7 @@ communication:
 kde-base:
 	$(GROUPINSTALL) KDE
 	$(GROUPINSTALL) "KDE Applications"
-	$(INSTALL) kdm kde-l10n-German kde-plasma-nm kate yakuake
+	$(INSTALL) kdm kde-l10n-German kde-plasma-nm kate yakuake krdc
 	systemctl disable gdm.service || true
 	systemctl stop gdm.service || true
 	systemctl enable kdm.service
