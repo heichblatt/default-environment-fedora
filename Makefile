@@ -61,7 +61,7 @@ devel:
 	LC_ALL=C $(GROUPINSTALL) "Development Tools"
 
 media:
-	$(INSTALL) vlc
+	$(INSTALL) vlc youtube-dl
 
 latex: 
 	$(INSTALL) texlive texlive-amsfonts texlive-babel-german texlive-latex texlive-base texlive-metafont-bin texlive-texconfig texlive-preprint texlive-dinbrief latexmk gummi
