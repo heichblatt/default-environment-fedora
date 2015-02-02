@@ -100,7 +100,7 @@ flash:
 	$(INSTALL) flash-plugin
 
 owncloud-client:
-	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_20/isv:ownCloud:desktop.repo
+	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
 	$(INSTALL) owncloud-client
 
 codecs:
