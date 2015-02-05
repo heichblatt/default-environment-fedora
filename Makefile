@@ -41,7 +41,7 @@ office:
 	$(GROUPINSTALL) LibreOffice
 	$(INSTALL) freemind jortho-dictionary-de cups-pdf calibre pdfmod 
 
-communication:
+communication: profanity
 	$(INSTALL) thunderbird pidgin pidgin-otr
 
 kde-base:
@@ -120,3 +120,11 @@ gnome-extras:
 coursera-dl:
 	$(INSTALL) python-pip
 	pip install coursera-dl
+
+profanity:
+	$(INSTALL) tar wget
+	cd /usr/src && \
+		wget -O profanity.tgz https://github.com/boothj5/profanity/archive/0.4.5.tar.gz && \
+		tar xf profanity.tgz && rm profanity.tgz && \
+		cd profanity* && time ./install-all.sh && \
+		rm -rf /usr/src/profanity*
