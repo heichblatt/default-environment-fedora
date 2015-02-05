@@ -22,7 +22,7 @@ rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts w3m w3m-img
 
 update:
 	yum update -y
@@ -41,13 +41,13 @@ office:
 	$(GROUPINSTALL) LibreOffice
 	$(INSTALL) freemind jortho-dictionary-de cups-pdf calibre pdfmod 
 
-communication:
+communication: profanity
 	$(INSTALL) thunderbird pidgin pidgin-otr
 
 kde-base:
 	$(GROUPINSTALL) KDE
 	$(GROUPINSTALL) "KDE Applications"
-	$(INSTALL) kdm kde-l10n-German kde-plasma-nm kate yakuake krdc kalarm
+	$(INSTALL) kdm kde-l10n-German kde-plasma-nm kate yakuake krdc kalarm okular
 	systemctl disable gdm.service || true
 	systemctl stop gdm.service || true
 	systemctl enable kdm.service
@@ -100,7 +100,7 @@ flash:
 	$(INSTALL) flash-plugin
 
 owncloud-client:
-	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_20/isv:ownCloud:desktop.repo
+	wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
 	$(INSTALL) owncloud-client
 
 codecs:
@@ -120,3 +120,11 @@ gnome-extras:
 coursera-dl:
 	$(INSTALL) python-pip
 	pip install coursera-dl
+
+profanity:
+	$(INSTALL) tar wget
+	cd /usr/src && \
+		wget -O profanity.tgz https://github.com/boothj5/profanity/archive/0.4.5.tar.gz && \
+		tar xf profanity.tgz && rm profanity.tgz && \
+		cd profanity* && time ./install-all.sh && \
+		rm -rf /usr/src/profanity*
