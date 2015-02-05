@@ -22,7 +22,7 @@ rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator w3m w3m-img
 
 update:
 	yum update -y
