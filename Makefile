@@ -9,7 +9,7 @@ DOCKER_CONTAINER_NAME ?= $(USER)/test-default-environment-fedora
 
 .IGNORE: docker
 
-all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker devel latex coursera-dl
+all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel latex coursera-dl
 
 kde: kde-base kde-extras
 gnome: gnome-base
@@ -71,6 +71,9 @@ docker:
 	systemctl enable docker
 	systemctl restart docker
 	@echo Please put your user account in the docker group.
+
+docker-enter:
+	docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
 
 msfonts: rpm-tools
 	$(INSTALL) ttmkfdir cabextract
