@@ -7,7 +7,7 @@ MSTTCOREFONTS_VERSION=2.5-1
 RPMBUILD_DIR=$(HOME)/rpmbuild
 DOCKER_CONTAINER_NAME ?= $(USER)/test-default-environment-fedora
 
-.IGNORE: docker
+.IGNORE: docker docker-enter
 
 all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel latex coursera-dl
 
