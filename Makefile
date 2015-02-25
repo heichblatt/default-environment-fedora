@@ -9,7 +9,7 @@ DOCKER_CONTAINER_NAME ?= $(USER)/test-default-environment-fedora
 
 .IGNORE: docker docker-enter
 
-all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel latex coursera-dl
+all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel coursera-dl
 
 kde: kde-base kde-extras
 gnome: gnome-base
