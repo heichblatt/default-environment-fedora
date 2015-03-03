@@ -9,7 +9,7 @@ DOCKER_CONTAINER_NAME ?= $(USER)/test-default-environment-fedora
 
 .IGNORE: docker docker-enter
 
-all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel latex coursera-dl
+all: rpmfusion update base web flash owncloud-client codecs communication pidgin-window-merge office msfonts media docker docker-enter devel coursera-dl
 
 kde: kde-base kde-extras
 gnome: gnome-base
@@ -25,7 +25,7 @@ base:
 	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts w3m w3m-img trickle tig unrar sshfs
 
 update:
-	yum update -y
+	-yum update -y
 
 rpm-tools:
 	$(INSTALL) wget rpm-build yum-utils rpmdevtools
