@@ -131,3 +131,8 @@ profanity:
 		tar xf profanity.tgz && rm profanity.tgz && \
 		cd profanity* && time ./install-all.sh && \
 		rm -rf /usr/src/profanity*
+
+chromium:
+	wget -cP /etc/yum.repos.d https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo
+	rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
+	$(INSTALL) chromium
