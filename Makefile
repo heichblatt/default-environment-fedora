@@ -118,7 +118,7 @@ gnome-base:
 	systemctl status gdm.service | grep "Active: active" || systemctl restart gdm.service
 
 gnome-extras:
-	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome
+	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome plank
 
 coursera-dl:
 	$(INSTALL) python-pip
