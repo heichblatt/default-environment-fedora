@@ -136,3 +136,8 @@ chromium:
 	wget -cP /etc/yum.repos.d https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo
 	rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
 	$(INSTALL) chromium
+
+virtualbox:
+	rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+	wget -c -P /etc/yum.repos.d http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+	$(INSTALL) VirtualBox-4.2
