@@ -22,7 +22,7 @@ rpmfusion:
 	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm || true
 
 base:
-	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts w3m w3m-img trickle tig unrar sshfs pavucontrol
+	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts w3m w3m-img trickle tig unrar sshfs mc rdesktop pavucontrol
 
 update:
 	-yum update -y
@@ -118,7 +118,7 @@ gnome-base:
 	systemctl status gdm.service | grep "Active: active" || systemctl restart gdm.service
 
 gnome-extras:
-	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome
+	$(INSTALL) remmina remmina-plugins-rdp remmina-plugins-vnc remmina-plugins-gnome plank
 
 coursera-dl:
 	$(INSTALL) python-pip
@@ -136,3 +136,8 @@ chromium:
 	wget -cP /etc/yum.repos.d https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo
 	rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
 	$(INSTALL) chromium
+
+virtualbox:
+	rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+	wget -c -P /etc/yum.repos.d http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+	$(INSTALL) VirtualBox-4.2
