@@ -18,8 +18,8 @@ test:
 	docker build --tag=$(DOCKER_CONTAINER_NAME) . 
 
 rpmfusion:
-	$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm || true
-	$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm || true
+	-$(INSTALL) http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm
+	-$(INSTALL) http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm
 
 base:
 	$(INSTALL) transmission-remote-gtk iftop iotop htop vim git etckeeper keepassx nmap kupfer yum-plugin-remove-with-leaves trash-cli wget net-tools nmap-frontend wireshark sudo nmon ike zsh terminus-fonts cryptkeeper pandoc ncdu pwgen ipcalculator aria2 artwiz-aleczapka-fonts w3m w3m-img trickle tig unrar sshfs mc rdesktop pavucontrol
@@ -48,8 +48,8 @@ kde-base:
 	$(GROUPINSTALL) KDE
 	$(GROUPINSTALL) "KDE Applications"
 	$(INSTALL) kdm kde-l10n-German kde-plasma-nm kate yakuake krdc kalarm okular
-	systemctl disable gdm.service || true
-	systemctl stop gdm.service || true
+	-systemctl disable gdm.service
+	-systemctl stop gdm.service
 	systemctl enable kdm.service
 	systemctl status kdm.service | grep "Active: active" || systemctl restart kdm.service
 
@@ -99,7 +99,7 @@ pidgin-window-merge: devel rpm-tools
 	yum -y install $(RPMBUILD_DIR)/RPMS/x86_64/pidgin-window_merge-[0-9]*.rpm || rpm -qa|grep pidgin\-window\_merge
 
 flash:
-	$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm || true
+	-$(INSTALL) http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
 	$(INSTALL) flash-plugin
 
 owncloud-client:
@@ -112,8 +112,8 @@ codecs:
 gnome-base:
 	$(GROUPINSTALL) GNOME
 	$(INSTALL) gdm terminator gnome-tweak-tool
-	systemctl disable kdm.service || true
-	systemctl stop kdm.service || true
+	-systemctl disable kdm.service
+	-systemctl stop kdm.service
 	systemctl enable gdm.service
 	systemctl status gdm.service | grep "Active: active" || systemctl restart gdm.service
 
