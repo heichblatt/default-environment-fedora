@@ -1,0 +1,127 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Add RPMFusion free Repo
+      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      ignore_errors: yes
+    - name: Add RPMFusion nonfree Repo
+      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      ignore_errors: yes
+    - name: Install base packages
+      yum: name={{item}} state=present
+      with_items:
+        - transmission-remote-gtk
+        - iftop
+        - iotop
+        - htop
+        - vim
+        - git
+        - etckeeper
+        - keepassx
+        - nmap
+        - kupfer
+        - yum-plugin-remove-with-leaves
+        - trash-cli
+        - wget
+        - net-tools
+        - nmap-frontend
+        - wireshark
+        - sudo
+        - nmon
+        - ike
+        - zsh
+        - terminus-fonts
+        - cryptkeeper
+        - pandoc
+        - ncdu
+        - pwgen
+        - ipcalculator
+        - aria2
+        - artwiz-aleczapka-fonts
+        - w3m
+        - w3m-img
+        - trickle
+        - tig
+        - unrar
+        - sshfs
+        - mc
+        - rdesktop
+        - pavucontrol
+        - python-pip
+    - name: Install RPM tools
+      yum: name={{item}} state=present
+      with_items:
+        - wget
+        - rpm-build
+        - yum-utils
+        - rpmdevtools
+    - name: Install Web tools
+      yum: name=firefox state=present
+    - name: Install development tools
+      yum: name={{item}} state=present
+      with_items:
+        - make
+        - gitg
+        - git
+        - vim-X11
+        - meld
+        - ShellCheck
+    - name: Install group Development Tools
+      yum: name="@Development Tools" state=present
+    - name: Install Web development tools
+      yum: name={{item}} state=present
+      with_items:
+        - rubygems
+        - ruby-devel
+        - rubygem-RedCloth
+        - nodejs
+    - name: Install Jekyll
+      command: gem install --no-ri --no-rdoc jekyll
+    - name: Install LibreOffice
+      yum: name="@Libreoffice" state=present
+    - name: Install office applications
+      yum: name={{item}} state=present
+      with_items:
+        - freemind
+        - jortho-dictionary-de
+        - cups-pdf
+        - calibre
+        - pdfmod
+    - name: Install communication applications
+      yum: name={{item}} state=present
+      with_items:
+        - thunderbird
+        - pidgin
+        - pidgin-otr
+    - name: Install Media tools
+      yum: name={{item}} state=present
+      with_items:
+        - vlc
+        - youtube-dl
+    - name: Install Docker
+      yum: name=docker-io state=present
+    - name: Enable and Restart Docker daemon
+      service: name=docker enabled=yes state=started
+    - name: Install docker-enter
+      command: docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
+    - name: Install Adobe Flash repo
+      yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
+    - name: Install Adobe Flash
+      yum: name=flash-plugin state=present
+    - name: Install OwnCloud client repo
+      command: wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
+    - name: Install OwnCloud client
+      yum: name=owncloud-client state=present
+    - name: Install Codecs
+      yum: name={{item}} state=present
+      with_items:
+        - gstreamer1-plugins-bad-freeworld
+        - gstreamer1-plugins-good
+        - gstreamer1-plugins-ugly
+    - name: Installing Chromium repo
+      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
+    - name: Importing Chromium repo GPG key
+      command: rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
+    - name: Install Chromium
+      yum: name=chromium state=present

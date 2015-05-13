@@ -1,2 +1,11 @@
 * use closed-source VirtualBox, even if it hurts
-* repair msfonts
+* port to Ansible:
+  * msfonts
+  * vagrant
+  * pidgin-window-merge
+  * profanity
+  * virtualbox
+* refactor out to extra yml:
+  * gnome*
+  * kde*
+  * latex
