@@ -104,6 +104,7 @@
       yum: name=docker-io state=present
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
+      ignore_errors: yes
     - name: Install docker-enter
       command: docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
       sudo: yes
