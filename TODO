@@ -9,3 +9,6 @@
   * gnome*
   * kde*
   * latex
+* yum -> dnf (plugins)
+* capitalization in Ansible output
+* dnf-etckeeper

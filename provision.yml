@@ -1,12 +1,12 @@
 ---
-- hosts: all
+- hosts: localhost
   sudo: yes
   tasks:
     - name: Add RPMFusion free Repo
-      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-21.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
       ignore_errors: yes
     - name: Add RPMFusion nonfree Repo
-      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-21.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
       ignore_errors: yes
     - name: Install base packages
       yum: name={{item}} state=present
@@ -49,6 +49,7 @@
         - rdesktop
         - pavucontrol
         - python-pip
+        - gnome-tweak-tool
     - name: Install RPM tools
       yum: name={{item}} state=present
       with_items:
@@ -56,7 +57,7 @@
         - rpm-build
         - yum-utils
         - rpmdevtools
-    - name: Install Web tools
+    - name: Install web tools
       yum: name=firefox state=present
     - name: Install development tools
       yum: name={{item}} state=present
@@ -69,7 +70,7 @@
         - ShellCheck
     - name: Install group Development Tools
       yum: name="@Development Tools" state=present
-    - name: Install Web development tools
+    - name: Install web development tools
       yum: name={{item}} state=present
       with_items:
         - rubygems
@@ -105,6 +106,7 @@
       service: name=docker enabled=yes state=started
     - name: Install docker-enter
       command: docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
+      sudo: yes
     - name: Install Adobe Flash repo
       yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
@@ -119,9 +121,3 @@
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-good
         - gstreamer1-plugins-ugly
-    - name: Installing Chromium repo
-      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
-    - name: Importing Chromium repo GPG key
-      command: rpm --import https://repos.fedorapeople.org/repos/spot/chromium/spot.gpg
-    - name: Install Chromium
-      yum: name=chromium state=present

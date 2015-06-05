@@ -1,9 +1,9 @@
-FROM fedora:21
+FROM fedora:22
 MAINTAINER Hannes Eichblatt
 
-RUN yum makecache
-RUN yum install -y deltarpm make
+RUN dnf makecache
+RUN dnf install -y deltarpm make ansible sudo yum
 
 ADD . /usr/src/default-environment-fedora
 WORKDIR /usr/src/default-environment-fedora
-RUN make
+RUN ansible-playbook -vv -i "localhost," -c local ./provision.yml
