@@ -7,17 +7,13 @@ Currently, this is only a loose collection of scripts to install software that i
 To run all the scripts in a subjectively prioritized order, run
 
 ```bash
-sudo make
+ansible-playbook -vv --ask-sudo-pass ./provision.yml
 ```
 
 ## Test
 
-To test if changes will actually work, install [Docker](https://www.docker.io/) and use the Dockerfile.
+To test if changes will actually work, install [Docker](https://www.docker.io/) and
 
-```bash
-docker build .
-```
-or
 ```bash
 make test
 ```
