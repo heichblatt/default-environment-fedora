@@ -78,7 +78,7 @@
         - rubygem-RedCloth
         - nodejs
     - name: Install Jekyll
-      command: gem install --no-ri --no-rdoc jekyll
+      gem: name=jekyll state=present
     - name: Install LibreOffice
       yum: name="@Libreoffice" state=present
     - name: Install office applications
@@ -114,7 +114,7 @@
     - name: Install Adobe Flash
       yum: name=flash-plugin state=present
     - name: Install OwnCloud client repo
-      command: wget -cO /etc/yum.repos.d/owncloud-client.repo http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
+      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
     - name: Install OwnCloud client
       yum: name=owncloud-client state=present
     - name: Install Codecs
