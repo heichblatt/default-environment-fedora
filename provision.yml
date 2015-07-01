@@ -123,3 +123,12 @@
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-good
         - gstreamer1-plugins-ugly
+    - name: Migrate YUM data to DNF
+      shell: cmd=dnf install python-dnf-plugins-extras-migrate && dnf-2 migrate
+      sudo: yes
+    - name: Install sysdig repo
+      get_url: dest=/etc/yum.repos.d/draios.repo url=http://download.draios.com/stable/rpm/draios.repo
+    - name: Import sysdig repo GPG key
+      command: rpm --import https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public
+    - name: Install sysdig
+      yum: name=sysdig state=present
