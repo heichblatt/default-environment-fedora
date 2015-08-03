@@ -50,6 +50,7 @@
         - pavucontrol
         - python-pip
         - gnome-tweak-tool
+        - strace
     - name: Install RPM tools
       yum: name={{item}} state=present
       with_items:
