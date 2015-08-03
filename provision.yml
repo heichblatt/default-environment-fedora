@@ -51,6 +51,12 @@
         - python-pip
         - gnome-tweak-tool
         - strace
+    - name: Install Chromium repo
+      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
+    - name: Install Chromium repo GPG key
+      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/spot.gpg dest=/etc/pki/rpm-gpg/spot.gpg
+    - name: Install Chromium
+      yum: name=chromium state=present
     - name: Install RPM tools
       yum: name={{item}} state=present
       with_items:
