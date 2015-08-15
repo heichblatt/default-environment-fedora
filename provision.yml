@@ -116,10 +116,6 @@
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
       ignore_errors: yes
-    - name: Install docker-enter
-      command: docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
-      sudo: yes
-      ignore_errors: yes
     - name: Install Adobe Flash repo
       yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
