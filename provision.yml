@@ -134,3 +134,7 @@
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-good
         - gstreamer1-plugins-ugly
+    - name: Download Skype RPM
+      get_url: url=http://www.skype.com/go/getskype-linux-beta-fc10 dest=/var/tmp/skype.rpm sha256sum=9011f4cbc8e7c484e55d2277b3c3503280d09b88bfadda3f447281169abdf924
+    - name: Install Skype
+      yum: name=/var/tmp/skype.rpm state=installed
