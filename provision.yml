@@ -142,3 +142,7 @@
       command: /usr/bin/rpm --import /var/tmp/virtualbox.asc
     - name: Install VirtualBox
       yum: name=VirtualBox-4.3 state=present
+    - name: Download Atom RPM
+      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=dfe2c3c059b7a345ccf5503e2589a1e9f7486cfa85282f420dc64194b7ab03d9
+    - name: Install Atom
+      yum: name=/var/tmp/atom.rpm state=installed
