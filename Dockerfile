@@ -2,7 +2,7 @@ FROM fedora:22
 MAINTAINER Hannes Eichblatt
 
 RUN dnf makecache && \
-	dnf install -y deltarpm make ansible sudo yum && \
+	dnf install -y deltarpm make ansible sudo yum gnupg && \
 	dnf clean all
 ADD . /usr/src/default-environment-fedora
 WORKDIR /usr/src/default-environment-fedora
