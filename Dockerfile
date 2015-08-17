@@ -1,4 +1,4 @@
-FROM fedora:22
+FROM Fedora-Docker-Base-23-20150816.x86_64
 MAINTAINER Hannes Eichblatt
 
 RUN dnf makecache && \

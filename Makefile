@@ -15,6 +15,8 @@ kde: kde-base kde-extras
 gnome: gnome-base
 
 test:
+	wget -cP /var/tmp https://kojipkgs.fedoraproject.org//work/tasks/9812/10719812/Fedora-Docker-Base-23-20150816.x86_64.tar.xz
+	docker load -i /var/tmp/Fedora-Docker-Base-23-*.x86_64.tar.xz
 	docker build --tag=$(DOCKER_CONTAINER_NAME) . 
 
 rpmfusion:
