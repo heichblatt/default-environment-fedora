@@ -55,6 +55,7 @@
         - NetworkManager-openvpn
         - NetworkManager-openvpn-gnome
         - duply
+        - newsbeuter
     - name: Install Chromium repo
       get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
     - name: Install Chromium repo GPG key
