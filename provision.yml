@@ -124,9 +124,9 @@
       yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
       yum: name=flash-plugin state=present
-    - name: Install OwnCloud client repo
-      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
-    - name: Install OwnCloud client
+    - name: Install ownCloud client repo
+      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Fedora_22/isv:ownCloud:desktop.repo
+    - name: Install ownCloud client
       yum: name=owncloud-client state=present
     - name: Install Codecs
       yum: name={{item}} state=present
