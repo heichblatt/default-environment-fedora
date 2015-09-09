@@ -51,6 +51,15 @@
         - python-pip
         - gnome-tweak-tool
         - strace
+        - terminator
+        - yumex-dnf
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - duply
+        - newsbeuter
+        - pv
+        - thunderbird-enigmail
+        - kpcli
     - name: Install Chromium repo
       get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
     - name: Install Chromium repo GPG key
@@ -112,17 +121,13 @@
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
       ignore_errors: yes
-    - name: Install docker-enter
-      command: docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter creates=/usr/local/bin/docker-enter
-      sudo: yes
-      ignore_errors: yes
     - name: Install Adobe Flash repo
       yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
       yum: name=flash-plugin state=present
-    - name: Install OwnCloud client repo
-      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
-    - name: Install OwnCloud client
+    - name: Install ownCloud client repo
+      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Fedora_22/isv:ownCloud:desktop.repo
+    - name: Install ownCloud client
       yum: name=owncloud-client state=present
     - name: Install Codecs
       yum: name={{item}} state=present
@@ -141,3 +146,19 @@
       rpm_key: key=https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public state=present
     - name: Install sysdig
       yum: name=sysdig state=present
+    - name: Download Skype RPM
+      get_url: url=http://www.skype.com/go/getskype-linux-beta-fc10 dest=/var/tmp/skype.rpm sha256sum=9011f4cbc8e7c484e55d2277b3c3503280d09b88bfadda3f447281169abdf924
+    - name: Install Skype
+      yum: name=/var/tmp/skype.rpm state=installed
+    - name: Install VirtualBox repo
+      get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo sha256sum=dc3c1a1adf89fdaa8638518a328d743cccce1bfc39c9c33f5e27d4c0df8fcf16
+    - name: Download VirtualBox repo GPG key
+      get_url: url=https://www.virtualbox.org/download/oracle_vbox.asc dest=/var/tmp/virtualbox.asc sha256sum=9fdcf6af0912d2f60c7a2dcbb712e5942e97a7462d8c54de9fbcd0fa6f1f7efa
+    - name: Import VirtualBox GPG key
+      command: /usr/bin/rpm --import /var/tmp/virtualbox.asc
+    - name: Install VirtualBox
+      yum: name=VirtualBox-4.3 state=present
+    - name: Download Atom RPM
+      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=0c27793f4092606b0e66b6608c4c0a44c3d7a83ff52cdabfd72533b08fd9749f
+    - name: Install Atom
+      yum: name=/var/tmp/atom.rpm state=installed
