@@ -2,12 +2,12 @@
 - hosts: localhost
   sudo: yes
   tasks:
-    - name: Add RPMFusion free Repo
-      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
-      ignore_errors: yes
-    - name: Add RPMFusion nonfree Repo
-      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
-      ignore_errors: yes
+#    - name: Add RPMFusion free Repo
+#      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+#      ignore_errors: yes
+#    - name: Add RPMFusion nonfree Repo
+#      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+#      ignore_errors: yes
     - name: Install base packages
       yum: name={{item}} state=present
       with_items:
