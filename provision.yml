@@ -65,6 +65,8 @@
       get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/spot.gpg dest=/etc/pki/rpm-gpg/spot.gpg
     - name: Install Chromium
       yum: name=chromium state=present
+    - name: Install Google Chrome
+      yum: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=present
     - name: Install RPM tools
       yum: name={{item}} state=present
       with_items:
