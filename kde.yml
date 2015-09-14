@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  sudo: yes
+  tasks:
+    - name: Install Kickstart Definitions
+      yum: name=spin-kickstarts state=present
+    - name: Install KDE
+      shell: grep \@ /usr/share/spin-kickstarts/fedora-kde-packages.ks | xargs dnf install -y
