@@ -6,3 +6,11 @@
       yum: name=spin-kickstarts state=present
     - name: Install KDE
       shell: grep \@ /usr/share/spin-kickstarts/fedora-kde-packages.ks | xargs dnf install -y
+    - name: Install additional packages
+      yum: name={{item}} state=present
+      with_items:
+        - sni-qt
+        - sni-qt.i686
+        - kate
+        - kate-plugins
+        - amarok
