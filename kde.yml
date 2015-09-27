@@ -14,3 +14,8 @@
         - kate
         - kate-plugins
         - amarok
+    - name: Install Monokai Konsole theme
+      get_url:
+        url=http://kde-look.org/CONTENT/content-files/154765-Monokai.colorscheme
+        dest=/home/heichblatt/.local/share/konsole/Monokai.colorscheme
+        sha256sum=c2e3cc0ba297693cecd74937f31cb1b672033cb0bc5551b4c90f43edd36338e9c2e3cc0ba297693cecd74937f31cb1b672033cb0bc5551b4c90f43edd36338e9
