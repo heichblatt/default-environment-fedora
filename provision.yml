@@ -119,6 +119,7 @@
       with_items:
         - vlc
         - youtube-dl
+        - ffmpeg
     - name: Install Docker
       yum: name=docker-io state=present
     - name: Enable and Restart Docker daemon
