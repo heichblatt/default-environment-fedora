@@ -154,18 +154,18 @@
       get_url: url=http://www.skype.com/go/getskype-linux-beta-fc10 dest=/var/tmp/skype.rpm sha256sum=9011f4cbc8e7c484e55d2277b3c3503280d09b88bfadda3f447281169abdf924
     - name: Install Skype
       yum: name=/var/tmp/skype.rpm state=installed
-    - name: Install VirtualBox repo
-      get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo sha256sum=6544572ace630c061d595294d4f14c574fc94e75784d19f5518337bd6be811ed
-    - name: Download VirtualBox repo GPG key
-      get_url: url=https://www.virtualbox.org/download/oracle_vbox.asc dest=/var/tmp/virtualbox.asc force=yes sha256sum=9fdcf6af0912d2f60c7a2dcbb712e5942e97a7462d8c54de9fbcd0fa6f1f7efa
-    - name: Import VirtualBox GPG key
-      command: /usr/bin/rpm --import /var/tmp/virtualbox.asc
-    - name: Install VirtualBox
-      yum: name=VirtualBox-4.3 state=present
-    - name: Install Kernel Source
-      yum: name=kernel-devel state=present
-    - name: Build VirtualBox Kernel Modules
-      command: /etc/init.d/vboxdrv setup
+#    - name: Install VirtualBox repo
+#      get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo sha256sum=6544572ace630c061d595294d4f14c574fc94e75784d19f5518337bd6be811ed
+#    - name: Download VirtualBox repo GPG key
+#      get_url: url=https://www.virtualbox.org/download/oracle_vbox.asc dest=/var/tmp/virtualbox.asc force=yes sha256sum=9fdcf6af0912d2f60c7a2dcbb712e5942e97a7462d8c54de9fbcd0fa6f1f7efa
+#    - name: Import VirtualBox GPG key
+#      command: /usr/bin/rpm --import /var/tmp/virtualbox.asc
+#    - name: Install VirtualBox
+#      yum: name=VirtualBox-4.3 state=present
+#    - name: Install Kernel Source
+#      yum: name=kernel-devel state=present
+#    - name: Build VirtualBox Kernel Modules
+#      command: /etc/init.d/vboxdrv setup
     - name: Download Atom RPM
       get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=e605f63f0ce77d5694722c54b33ea61c48115c9c32c4a00f763499cf84872616
     - name: Install Atom

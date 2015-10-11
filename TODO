@@ -1,14 +1,7 @@
-* use closed-source VirtualBox, even if it hurts
-* port to Ansible:
-  * msfonts
-  * vagrant
-  * pidgin-window-merge
-  * profanity
-  * virtualbox
+* VirtualBox
 * refactor out to extra yml:
   * gnome*
   * kde*
   * latex
 * yum -> dnf (plugins)
 * capitalization in Ansible output
-* dnf-etckeeper
