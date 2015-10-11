@@ -166,6 +166,11 @@
 #      yum: name=kernel-devel state=present
 #    - name: Build VirtualBox Kernel Modules
 #      command: /etc/init.d/vboxdrv setup
+    - name: Install Vagrant
+      yum: name={{ item }} state=installed
+      with_items:
+        - vagrant
+        - vagrant-lxc
     - name: Download Atom RPM
       get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=e605f63f0ce77d5694722c54b33ea61c48115c9c32c4a00f763499cf84872616
     - name: Install Atom
