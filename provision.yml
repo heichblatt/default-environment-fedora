@@ -155,13 +155,10 @@
     - name: Install Skype
       yum: name=/var/tmp/skype.rpm state=installed
     - name: Install VirtualBox
-      tags: testme
       command: dnf install -y VirtualBox
     - name: Install Kernel Source
-      tags: testme
       yum: name=kernel-devel state=present
     - name: Build VirtualBox Kernel Modules
-      tags: testme
       command: /etc/init.d/vboxdrv setup
     - name: Install Vagrant
       yum: name={{ item }} state=installed
