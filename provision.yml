@@ -87,6 +87,8 @@
         - vim-X11
         - meld
         - ShellCheck
+        - ansible
+        - ansible-lint
     - name: Install group Development Tools
       yum: name="@Development Tools" state=present
     - name: Install web development tools
