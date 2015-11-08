@@ -161,3 +161,9 @@
       get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=b5dc489db12d08dd7d161686a0b8e5c6c4a50fe4e1252cf05e5aec44a658346e
     - name: Install Atom
       dnf: name=/var/tmp/atom.rpm state=installed
+    # - name: fetch virtualbox repo
+    #   get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d sha256sum=6544572ace630c061d595294d4f14c574fc94e75784d19f5518337bd6be811ed
+    # - name: import virtualbox rpm gpg key
+    #   shell: rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+    # - name: install VirtualBox-4.3
+    #   dnf: name=VirtualBox-4.3 state=present
