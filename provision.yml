@@ -167,3 +167,5 @@
     #   shell: rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
     # - name: install VirtualBox-4.3
     #   dnf: name=VirtualBox-4.3 state=present
+    # - name: add heichblatt to @vboxusers
+    #   user: name=heichblatt groups=vboxusers append=yes
