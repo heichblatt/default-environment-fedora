@@ -3,13 +3,13 @@
   sudo: yes
   tasks:
     - name: Add RPMFusion free Repo
-      yum: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present disable_gpg_check=yes
       ignore_errors: yes
     - name: Add RPMFusion nonfree Repo
-      yum: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present update_cache=yes disable_gpg_check=yes
+      dnf: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present disable_gpg_check=yes
       ignore_errors: yes
     - name: Install base packages
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - transmission-remote-gtk
         - iftop
@@ -21,7 +21,6 @@
         - keepassx
         - nmap
         - kupfer
-        - yum-plugin-remove-with-leaves
         - trash-cli
         - wget
         - net-tools
@@ -43,7 +42,6 @@
         - w3m-img
         - trickle
         - tig
-        - unrar
         - sshfs
         - mc
         - rdesktop
@@ -52,27 +50,28 @@
         - gnome-tweak-tool
         - strace
         - terminator
-        - yumex-dnf
         - NetworkManager-openvpn
         - NetworkManager-openvpn-gnome
         - duply
-    - name: Install Chromium repo
-      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/fedora-chromium-stable.repo dest=/etc/yum.repos.d/fedora-chromium-stable.repo
-    - name: Install Chromium repo GPG key
-      get_url: url=https://repos.fedorapeople.org/repos/spot/chromium-stable/spot.gpg dest=/etc/pki/rpm-gpg/spot.gpg
-    - name: Install Chromium
-      yum: name=chromium state=present
+        - newsbeuter
+        - pv
+        - thunderbird-enigmail
+        - kpcli
+        - python-dnf-plugins-extras-tracer
+        - guake
+        - virt-manager
+    - name: Install Google Chrome
+      dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=present
     - name: Install RPM tools
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - wget
         - rpm-build
-        - yum-utils
         - rpmdevtools
     - name: Install web tools
-      yum: name=firefox state=present
+      dnf: name=firefox state=present
     - name: Install development tools
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - make
         - gitg
@@ -81,9 +80,9 @@
         - meld
         - ShellCheck
     - name: Install group Development Tools
-      yum: name="@Development Tools" state=present
+      dnf: name="@Development Tools" state=present
     - name: Install web development tools
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - rubygems
         - ruby-devel
@@ -92,9 +91,9 @@
     - name: Install Jekyll
       gem: name=jekyll state=present
     - name: Install LibreOffice
-      yum: name="@Libreoffice" state=present
+      dnf: name="@Libreoffice" state=present
     - name: Install office applications
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - freemind
         - jortho-dictionary-de
@@ -102,37 +101,38 @@
         - calibre
         - pdfmod
     - name: Install communication applications
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - thunderbird
         - pidgin
         - pidgin-otr
     - name: Install Media tools
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - vlc
         - youtube-dl
+        - ffmpeg
     - name: Install Docker
-      yum: name=docker-io state=present
+      dnf: name=docker-io state=present
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
       ignore_errors: yes
     - name: Install Adobe Flash repo
-      yum: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
+      dnf: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
-      yum: name=flash-plugin state=present
-    - name: Install OwnCloud client repo
-      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:ownCloud:desktop/Fedora_21/isv:ownCloud:desktop.repo
-    - name: Install OwnCloud client
-      yum: name=owncloud-client state=present
+      dnf: name=flash-plugin state=present
+    - name: Install ownCloud client repo
+      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Fedora_22/isv:ownCloud:desktop.repo
+    - name: Install ownCloud client
+      dnf: name=owncloud-client state=present
     - name: Install Codecs
-      yum: name={{item}} state=present
+      dnf: name={{item}} state=present
       with_items:
         - gstreamer1-plugins-bad-freeworld
         - gstreamer1-plugins-good
         - gstreamer1-plugins-ugly
     - name: Install YUM DNF data migration plugin for DNF
-      yum: name=python-dnf-plugins-extras-migrate state=present
+      dnf: name=python-dnf-plugins-extras-migrate state=present
     - name: Migrate YUM data to DNF
       shell: command="/usr/bin/dnf-2 migrate"
       sudo: yes
@@ -141,20 +141,17 @@
     - name: Import sysdig repo GPG key
       rpm_key: key=https://s3.amazonaws.com/download.draios.com/DRAIOS-GPG-KEY.public state=present
     - name: Install sysdig
-      yum: name=sysdig state=present
+      dnf: name=sysdig state=present
     - name: Download Skype RPM
       get_url: url=http://www.skype.com/go/getskype-linux-beta-fc10 dest=/var/tmp/skype.rpm sha256sum=9011f4cbc8e7c484e55d2277b3c3503280d09b88bfadda3f447281169abdf924
     - name: Install Skype
-      yum: name=/var/tmp/skype.rpm state=installed
-    - name: Install VirtualBox repo
-      get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo sha256sum=dc3c1a1adf89fdaa8638518a328d743cccce1bfc39c9c33f5e27d4c0df8fcf16
-    - name: Download VirtualBox repo GPG key
-      get_url: url=https://www.virtualbox.org/download/oracle_vbox.asc dest=/var/tmp/virtualbox.asc sha256sum=9fdcf6af0912d2f60c7a2dcbb712e5942e97a7462d8c54de9fbcd0fa6f1f7efa
-    - name: Import VirtualBox GPG key
-      command: /usr/bin/rpm --import /var/tmp/virtualbox.asc
-    - name: Install VirtualBox
-      yum: name=VirtualBox-4.3 state=present
+      dnf: name=/var/tmp/skype.rpm state=installed
+    - name: Install Vagrant
+      dnf: name={{ item }} state=installed
+      with_items:
+        - vagrant
+        - vagrant-lxc
     - name: Download Atom RPM
-      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=dfe2c3c059b7a345ccf5503e2589a1e9f7486cfa85282f420dc64194b7ab03d9
+      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=b5dc489db12d08dd7d161686a0b8e5c6c4a50fe4e1252cf05e5aec44a658346e
     - name: Install Atom
-      yum: name=/var/tmp/atom.rpm state=installed
+      dnf: name=/var/tmp/atom.rpm state=installed

@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  sudo: yes
+  tasks:
+    - name: Install Kickstart Definitions
+      dnf: name=spin-kickstarts state=present
+    - name: Install KDE
+      shell: grep \@ /usr/share/spin-kickstarts/fedora-kde-packages.ks | xargs dnf install -y
+    - name: Install additional packages
+      dnf: name={{item}} state=present
+      with_items:
+        - sni-qt
+        - sni-qt.i686
+        - kate
+        - kate-plugins
+        - amarok
+    - name: Install Monokai Konsole theme
+      get_url:
+        url=http://kde-look.org/CONTENT/content-files/154765-Monokai.colorscheme
+        dest=/home/heichblatt/.local/share/konsole/Monokai.colorscheme
+        sha256sum=c2e3cc0ba297693cecd74937f31cb1b672033cb0bc5551b4c90f43edd36338e9
