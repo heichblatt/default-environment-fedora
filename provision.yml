@@ -3,10 +3,10 @@
   sudo: yes
   tasks:
     - name: Add RPMFusion free Repo
-      dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-22.noarch.rpm state=present disable_gpg_check=yes
+      dnf: name=http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-23.noarch.rpm state=present disable_gpg_check=yes
       ignore_errors: yes
     - name: Add RPMFusion nonfree Repo
-      dnf: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-22.noarch.rpm state=present disable_gpg_check=yes
+      dnf: name=http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-23.noarch.rpm state=present disable_gpg_check=yes
       ignore_errors: yes
     - name: Install base packages
       dnf: name={{item}} state=present
