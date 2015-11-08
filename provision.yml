@@ -114,6 +114,10 @@
         - ffmpeg
     - name: Install Docker
       dnf: name=docker-io state=present
+    - name: add group docker
+      group: name=docker state=present
+    - name: add heichblatt to @docker
+      user: name=heichblatt groups=docker append=yes
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
       ignore_errors: yes
