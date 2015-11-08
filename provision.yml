@@ -25,7 +25,7 @@
         - wget
         - net-tools
         - nmap-frontend
-        - wireshark
+        - wireshark-gnome
         - sudo
         - nmon
         - ike
