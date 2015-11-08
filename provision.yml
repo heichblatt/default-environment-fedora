@@ -60,6 +60,8 @@
         - python-dnf-plugins-extras-tracer
         - guake
         - virt-manager
+    - name: add heichblatt to @wireshark
+      user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
       dnf: name=https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm state=present
     - name: Install RPM tools
