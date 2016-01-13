@@ -65,6 +65,7 @@
         - adobe-source-code-pro-fonts
         - mozilla-fira-sans-fonts
         - mozilla-fira-mono-fonts
+        - NetworkManager-tui
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
