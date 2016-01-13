@@ -60,6 +60,11 @@
         - python-dnf-plugins-extras-tracer
         - guake
         - virt-manager
+        - glances
+        - adobe-source-sans-pro-fonts
+        - adobe-source-code-pro-fonts
+        - mozilla-fira-sans-fonts
+        - mozilla-fira-mono-fonts
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
