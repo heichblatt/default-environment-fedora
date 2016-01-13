@@ -158,7 +158,7 @@
         - vagrant
         - vagrant-lxc
     - name: Download Atom RPM
-      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm sha256sum=93d51d7fb6d95fa15fa17c78b83dda208e0d7d079e0957bfbc6dcc01b708f3e6.
+      get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm
     - name: Install Atom
       dnf: name=/var/tmp/atom.rpm state=installed
     - name: fetch virtualbox repo
