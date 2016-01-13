@@ -166,4 +166,10 @@
     - name: import virtualbox rpm gpg key
       shell: rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
     - name: install VirtualBox-4.3
-      dnf: name=VirtualBox-4.3 state=present
+      dnf: name={{item}} state=present
+      with_items:
+        - VirtualBox-4.3
+        - kernel-devel
+    - name: compile VirtualBox kernel modules
+      shell: /etc/init.d/vboxdrv setup
+      ignore_errors: yes
