@@ -128,7 +128,7 @@
     - name: Install Adobe Flash
       dnf: name=flash-plugin state=present
     - name: Install ownCloud client repo
-      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Fedora_22/isv:ownCloud:desktop.repo
+      get_url: dest=/etc/yum.repos.d/owncloud-client.repo url=http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Fedora_23/isv:ownCloud:desktop.repo
     - name: Install ownCloud client
       dnf: name=owncloud-client state=present
     - name: Install Codecs
