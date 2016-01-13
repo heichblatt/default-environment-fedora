@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   sudo: yes
   tasks:
     - name: Add RPMFusion free Repo
@@ -147,7 +147,6 @@
       dnf: name=python-dnf-plugins-extras-migrate state=present
     - name: Migrate YUM data to DNF
       shell: command="/usr/bin/dnf-2 migrate"
-      sudo: yes
     - name: Install sysdig repo
       get_url: dest=/etc/yum.repos.d/draios.repo url=http://download.draios.com/stable/rpm/draios.repo
     - name: Import sysdig repo GPG key
