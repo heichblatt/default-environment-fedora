@@ -66,6 +66,7 @@
         - mozilla-fira-sans-fonts
         - mozilla-fira-mono-fonts
         - NetworkManager-tui
+        - python-dnf-plugins-extras-tracer
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
