@@ -124,7 +124,10 @@
         - youtube-dl
         - ffmpeg
     - name: remove distribution provided Docker
-      dnf: name=docker-io state=absent
+      dnf: name={{item}} state=absent
+      with_items:
+        - docker-io
+        - docker
     - name: fetch official Docker repo definition
       template: src=templates/docker.repo dest=/etc/yum.repos.d/docker.repo mode=0644 owner=root group=root
     - name: install Docker
