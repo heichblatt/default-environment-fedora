@@ -121,8 +121,12 @@
         - vlc
         - youtube-dl
         - ffmpeg
-    - name: Install Docker
-      dnf: name=docker-io state=present
+    - name: remove distribution provided Docker
+      dnf: name=docker-io state=absent
+    - name: fetch official Docker repo definition
+      template: src=templates/docker.repo dest=/etc/yum.repos.d/docker.repo mode=0644 owner=root group=root
+    - name: install Docker
+      dnf: name=docker-engine state=present
     - name: add group docker
       group: name=docker state=present
     - name: add heichblatt to @docker
