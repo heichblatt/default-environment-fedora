@@ -135,6 +135,8 @@
     - name: Enable and Restart Docker daemon
       service: name=docker enabled=yes state=started
       ignore_errors: yes
+    - name: fetch docker-machine
+      get_url: url=https://github.com/docker/machine/releases/download/v0.5.3/docker-machine_linux-amd64 dest=/usr/local/bin/docker-machine mode=0557 owner=root group=root
     - name: Install Adobe Flash repo
       dnf: name=http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm state=present
     - name: Install Adobe Flash
