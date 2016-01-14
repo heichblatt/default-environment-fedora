@@ -7,7 +7,7 @@ Currently, this is only a couple [Ansible](http://www.ansible.com/) playbooks.
 Run the main playbook.
 
 ```bash
-ansible-playbook -vv -i "127.0.0.1," --ask-become-pass ./provision.yml
+ansible-playbook -vv -i 127.0.0.1, --ask-become-pass ./provision.yml
 ```
 
 ## Test
