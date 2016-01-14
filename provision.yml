@@ -68,6 +68,7 @@
         - NetworkManager-tui
         - python-dnf-plugins-extras-tracer
         - libselinux-python
+        - xterm
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
