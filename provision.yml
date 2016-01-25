@@ -94,6 +94,7 @@
       with_items:
         - make
         - gitg
+        - git-cola
         - git
         - vim-X11
         - meld
