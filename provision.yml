@@ -77,6 +77,7 @@
         - beets
         - beets-plugins
         - soundconverter
+        - hexchat
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
