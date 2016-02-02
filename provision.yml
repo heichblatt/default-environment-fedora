@@ -78,6 +78,11 @@
         - beets-plugins
         - soundconverter
         - hexchat
+        - shutter
+        - clamav
+        - clamav-update
+    - name: enable freshclam
+      command: sed -i 's/^Example$/\# Example/g' /etc/freshclam.conf
     - name: add heichblatt to @wireshark
       user: name=heichblatt groups=wireshark append=yes
     - name: Install Google Chrome
