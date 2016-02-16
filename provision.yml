@@ -209,3 +209,5 @@
     - name: compile VirtualBox kernel modules
       shell: /sbin/rcvboxdrv setup
       ignore_errors: yes
+    - name: install AWS cli
+      pip: name=awscli
