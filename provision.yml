@@ -83,6 +83,7 @@
         - clamav-update
         - p7zip
         - p7zip-plugins
+        - tigervnc
     - name: enable freshclam
       command: sed -i 's/^Example$/\# Example/g' /etc/freshclam.conf
     - name: add heichblatt to @wireshark
