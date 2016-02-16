@@ -207,5 +207,5 @@
         - VirtualBox-5.0
         - kernel-devel
     - name: compile VirtualBox kernel modules
-      shell: /etc/init.d/vboxdrv setup
+      shell: /sbin/rcvboxdrv setup
       ignore_errors: yes
