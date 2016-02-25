@@ -215,3 +215,5 @@
       ignore_errors: yes
     - name: install AWS cli
       pip: name=awscli
+    - name: install DCOS cli
+      pip: name=dcoscli
