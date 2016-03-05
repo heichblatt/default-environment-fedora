@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - dnf: name={{ item }} state=present
+      with_items:
+        - texlive
+        - texlive-biblatex
+        - latexmk
+        - gummi
