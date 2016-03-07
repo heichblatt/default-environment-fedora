@@ -225,7 +225,7 @@
     - name: install DCOS cli
       pip: name=dcoscli
     - name: install Slack repo
-      shell: curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.rpm.sh | sudo bash
+      shell: curl -s https://packagecloud.io/install/repositories/slacktechnologies/slack/script.rpm.sh | sudo bash creates=/etc/yum.repos.d/slack.repo
       #TODO This is the officially recommended yet fundamentally wrong way to do this.
     - name: install Slack
       dnf: name=slack state=present
