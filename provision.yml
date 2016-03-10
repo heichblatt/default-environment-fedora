@@ -210,6 +210,10 @@
       get_url: url=https://atom.io/download/rpm dest=/var/tmp/atom.rpm
     - name: Install Atom
       dnf: name=/var/tmp/atom.rpm state=installed
+    - name: install Atom packages
+      shell: apm install {{ item }}
+      with_items:
+        - git-plus
     - name: fetch virtualbox repo
       get_url: url=http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo dest=/etc/yum.repos.d sha256sum=6544572ace630c061d595294d4f14c574fc94e75784d19f5518337bd6be811ed
     - name: install VirtualBox
