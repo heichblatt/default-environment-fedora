@@ -89,6 +89,16 @@
         - remmina-plugins-vnc
         - remmina-plugins-rdp
         - gummi
+    - name: install Roboto fonts
+      dnf: name={{ item }} state=present
+      with_items:
+        - google-roboto-mono-fonts
+        - google-roboto-fonts
+    - name: set desktop fonts and settings
+      shell: gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 11' && \
+              gsettings set org.gnome.desktop.interface document-font-name 'Roboto 11' && \
+              gsettings set org.gnome.desktop.interface font-name 'Roboto 11' && \
+              gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto Medium 11'
     - name: install dictionaries
       dnf: name={{ item }} state=present
       with_items:
