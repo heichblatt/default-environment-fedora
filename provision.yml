@@ -99,6 +99,10 @@
               gsettings set org.gnome.desktop.interface document-font-name 'Roboto 11' && \
               gsettings set org.gnome.desktop.interface font-name 'Roboto 11' && \
               gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto Medium 11'
+    - name: fetch terminix repo
+      get_url: url=http://download.opensuse.org/repositories/home:gnunn/Fedora_23/home:gnunn.repo dest=/etc/yum.repos.d sha256sum=cbded3a0469ebc2d86cb987f9747e1e9ea82955e666324417167c0e6474e31fe
+    - name: install terminix
+      dnf: name=terminix state=present
     - name: install dictionaries
       dnf: name={{ item }} state=present
       with_items:
